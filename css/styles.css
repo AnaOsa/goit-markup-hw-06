@@ -637,6 +637,10 @@ img {
 }
 
 .terms {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 14px;
     line-height: 1.71;
     letter-spacing: 0.03em;
@@ -649,6 +653,40 @@ img {
 }
 .terms-link:focus {
     outline-color: var(--accent-color);
+}
+
+.check {
+    opacity: 0;
+    position: absolute;
+    top: auto;
+    left: 12px;
+    color: var(--white-text-color);
+    fill: currentColor;
+    border-radius: 2px;
+    transition: color var(--animation-duration) var(--animation-timing-function),
+        background-color var(--animation-duration) var(--animation-timing-function),
+        opacity var(--animation-duration) var(--animation-timing-function);
+}
+
+.checkbox-icon {
+    opacity: 1;
+    position: relative;
+    margin-right: 8px;
+    color: var(--title-color);
+    fill: currentColor;
+    transition: color var(--animation-duration) var(--animation-timing-function);
+}
+input:focus-within + .checkbox-icon {
+    color: var(--accent-color);
+}
+input:checked + .checkbox-icon {
+    opacity: 0;
+}
+input:checked ~ .check {
+    opacity: 1;
+    z-index: 1;
+    color: var(--white-text-color);
+    background-color: var(--accent-color);
 }
 .modal-btn {
     display: block;
